@@ -13,6 +13,7 @@ if (@ARGV < 1) {
 }
 my ($read1_file, $pattern) = @ARGV;
 $pattern = 'CTGTCTCTTATACACATCT' unless $pattern; #default
+$pattern =~ /^[ACGT]*$/ or die "sequence pattern must consist solely of A,C,G,T ($pattern)\n";
 
 my $read2_file = $read1_file;
 $read2_file =~ s/_R1/_R2/ or die "cannot switch R1 to R2 to find read 2 file";
